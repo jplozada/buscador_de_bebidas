@@ -1,8 +1,16 @@
-import React from 'react';
+import React, {Fragment} from 'react';
+import Header from './components/Header';
 
 function App() {
   return (
-    <h1>Bebidas</h1>
+    <Fragment>
+      <Header/>
+      <div className="container mt-5">
+        <div className="row">
+
+        </div>
+      </div>
+    </Fragment>
   );
 }
 
