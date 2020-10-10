@@ -11,6 +11,8 @@ const Formulario = () => {
     const { categorias } = useContext(CategoriasContext);
     const { buscarRecetas, guardarConsultar } = useContext(RecetasContext);
     
+    const [error, guardarError] = useState(false);
+    
     // Funcion para leer los contenidos
     const obtenerDatosReceta = e => {
         guardarBusqueda({
@@ -19,15 +21,21 @@ const Formulario = () => {
         })
     }
 
-    return (  
+    return (
         <form
             className="col-12"
             onSubmit={e => {
                 e.preventDefault();
+                if (busqueda.nombre === '' || busqueda.categoria === '') {
+                   guardarError(true);   
+                    return;
+                }
+                guardarError(false);
                 buscarRecetas(busqueda);
                 guardarConsultar(true);
             }}
         >
+            {error ? <p className="alert alert-danger text-center p-2">Llenar campos</p> : null}  
             <fieldset className="text-center">
                 <legend>Busca bebidas por Categoria o Ingrediente</legend>
             </fieldset>
