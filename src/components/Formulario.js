@@ -47,7 +47,7 @@ const Formulario = () => {
                         name="categoria"
                         onChange={obtenerDatosReceta}
                     >
-                        <option value="">-- Selecciona Categoria --</option>
+                        <option value="">--Selecciona Categoria--</option>
                         {categorias.map(categoria => (
                             <option 
                                 key={categoria.strCategory} 
